@@ -7,7 +7,7 @@
         <Select
             :options="pokemonTypesOptions"
             :maxSelect="2"
-            placeholder="Select types..."
+            placeholder="Select types"
             @select="handleTypeSelect"
         ></Select>
         </div>
@@ -35,8 +35,7 @@
             </div>
         </div>
         <footer class="p-4 mx-auto">
-            <Paginator 
-                v-if="pokemonList.length >= 12"
+            <Paginator
                 :itemsPerPage="itemsPerPage" 
                 :totalItems="totalItems" 
                 :currentPage="currentPage"
