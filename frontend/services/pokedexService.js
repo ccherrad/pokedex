@@ -10,7 +10,7 @@ const getPokemones = async (
     if (name) {
       url.searchParams.set("name", name);
     }
-    types.forEach((type) => url.searchParams.set("type", type));
+    types.forEach((type) => url.searchParams.append("type", type));
     url.searchParams.set("sort_field", sort_field);
     url.searchParams.set("sort_direction", sort_direction);
     url.searchParams.set("limit", limit);
