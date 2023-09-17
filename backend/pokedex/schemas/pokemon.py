@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from ninja import Schema
 
@@ -19,8 +19,8 @@ class PokemonDetails(PokemonListItem):
     classification: ClassificationName
     attack: int
     defense: int
-    height_m: float
-    weight_kg: float
+    height_m: Optional[float]
+    weight_kg: Optional[float]
     hp: int
     sp_attack: int
     sp_defense: int

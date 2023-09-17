@@ -25,16 +25,16 @@
             <div class="flex justify-center space-x-2">
                 <img v-for="type in types" :src="type" class="w-12 h-12">
             </div>
-            <div class="text-center">
+            <div v-if="pokemon.height_m" class="text-center">
                 <p class="mt-2 text-gray-600">
                   <i class="fa-solid fa-ruler-vertical"></i>
-                  0.7 m
+                  {{ pokemon.height_m }} m
                 </p>
             </div>
-            <div class="text-center">
+            <div v-if="pokemon.weight_kg" class="text-center">
                 <p class="mt-2 text-gray-600">
                   <i class="fa-solid fa-weight-hanging"></i>
-                  6,9 kg
+                 {{ pokemon.weight_kg }} kg
                 </p>
             </div>
             </div>
@@ -44,7 +44,7 @@
           <Scale name="Special Attack" :value="pokemon.sp_attack"/>
           <Scale name="Special Defense" :value="pokemon.sp_defense"/>
           <Scale name="Speed" :value="pokemon.speed"/>
-          <Scale name="Attck" :value="pokemon.attack"/>  
+          <Scale name="Attack" :value="pokemon.attack"/>  
           <Scale name="Defense" :value="pokemon.defense"/>
         </div>
     </div>
@@ -77,7 +77,7 @@ export default {
         const matchingType = this.$store.state.pokemonTypes.types.find((data) => data.name === type);
         return matchingType ? matchingType.icon_url : null;
       });
-    }    
+    }
   },
 
   methods: {
