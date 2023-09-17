@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+  database:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=pokemon_db
+      - POSTGRES_USER=pokemon_user
+      - POSTGRES_PASSWORD=poke_passwd
+
+  api:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    env_file:
+      - .env
+  
+  ui:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
