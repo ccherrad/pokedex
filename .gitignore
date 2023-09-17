@@ -1,0 +1,36 @@
+# Python/Django specific
+__pycache__/
+*.py[cod]
+*.bak
+*.swp
+*.sqlite3
+
+# Virtual environment
+venv/
+.env
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Development and debugging logs
+*.log
+
+# Media files (user-uploaded content)
+media/
+
+# Static files (collectstatic)
+staticfiles/
+
+# Compiled Python files
+*.pyc
+
+# Database (SQLite)
+db.sqlite3
+
+# Secret key configuration
+*.secret
+
+# IDE/Editor-specific files
+.idea/
+.vscode/
