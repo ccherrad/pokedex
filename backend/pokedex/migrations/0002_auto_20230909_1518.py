@@ -17,7 +17,7 @@ def populate_data(apps, schema_editor):
             classification, _ = Classification.objects.get_or_create(
                 name=row["classfication"]
             )
-            type_list = [row['type1'], row['type2']]
+            type_list = set([row['type1'], row['type2']])
             height = float(row['height_m']) if row['height_m'] else None
             weight = float(row['weight_kg']) if row['weight_kg'] else None
             pokemon = Pokemon.objects.create(
