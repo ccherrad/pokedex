@@ -1,6 +1,7 @@
 from typing import List
 
 from ninja import Router
+
 from pokedex.models import PokemonType
 from pokedex.schemas import PokemonType as PokemonTypeOut
 

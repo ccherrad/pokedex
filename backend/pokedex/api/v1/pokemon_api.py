@@ -1,14 +1,13 @@
-from typing import List, Optional
-from enum import Enum
+from typing import List
 
 from django.shortcuts import get_object_or_404
-
-from ninja import Router, FilterSchema, Query, Field
+from ninja import Query, Router
 from ninja.pagination import paginate
 
 from pokedex.models import Pokemon
-from pokedex.schemas import PokemonListItem, PokemonDetails
-from .helpers import PokemoneFilterSchema, SortField, SortDirection
+from pokedex.schemas import PokemonDetails, PokemonListItem
+
+from .helpers import PokemoneFilterSchema, SortDirection, SortField
 
 router = Router()
 
@@ -31,7 +30,8 @@ def get_all_pokemones(
         sort_direction (str): The sorting direction, either "asc" or "desc".
 
     Returns:
-        List[PokemonListItem]: A list of Pokémon matching the filters and sorted as specified.
+        List[PokemonListItem]: A list of Pokémon matching the filters and
+        sorted as specified.
     """
 
     qs = Pokemon.objects.all()

@@ -2,21 +2,22 @@
 import json
 import os
 
-from django.db import migrations
 from django.conf import settings
+from django.db import migrations
+
 
 def load_pokemon_types_data(apps, schema_editor):
-    PokemonType = apps.get_model('pokedex', 'PokemonType')
+    PokemonType = apps.get_model("pokedex", "PokemonType")
 
-    json_file_path = os.path.join(settings.BASE_DIR, 'pokedex/data/types.json')
-    with open(json_file_path, 'r') as json_file:
+    json_file_path = os.path.join(settings.BASE_DIR, "pokedex/data/types.json")
+    with open(json_file_path, "r") as json_file:
         data = json.load(json_file)
-        
-        for item in data['types']:
+
+        for item in data["types"]:
             PokemonType.objects.create(
-                name=item['name'],
-                icon_url=item['icon_url']
+                name=item["name"], icon_url=item["icon_url"]
             )
+
 
 class Migration(migrations.Migration):
     dependencies = [

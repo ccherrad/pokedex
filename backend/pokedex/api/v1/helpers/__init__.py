@@ -1,5 +1,1 @@
-from .filters import (
-    PokemoneFilterSchema, 
-    SortDirection,
-    SortField,
-)
+from .filters import PokemoneFilterSchema, SortDirection, SortField

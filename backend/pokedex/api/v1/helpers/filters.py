@@ -1,12 +1,12 @@
-from typing import List, Optional
 from enum import Enum
+from typing import List, Optional
 
-from ninja import FilterSchema, Field
+from ninja import Field, FilterSchema
 
 
 class PokemoneFilterSchema(FilterSchema):
-    name: Optional[str] = Field(q='name__icontains')
-    type: Optional[List[str]] = Field(q='type__contains')
+    name: Optional[str] = Field(q="name__icontains")
+    type: Optional[List[str]] = Field(q="type__contains")
 
 
 class SortDirection(Enum):
